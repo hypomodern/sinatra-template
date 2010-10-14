@@ -1,26 +1,8 @@
-require 'rubygems'
-require 'dm-core'
-require 'dm-timestamps'
-require 'dm-validations'
-require 'dm-aggregates'
-require 'dm-migrations'
-require 'haml'
-require 'ostruct'
+# Configure Mongo
+MongoMapper.connection = Mongo::Connection.new(ENV["MONGO_HOST"] || "localhost")
+MongoMapper.database = "sample_app_#{Sinatra::Base.environment}"
 
-require 'sinatra' unless defined?(Sinatra)
+# load models
+$LOAD_PATH.unshift("#{File.dirname(__FILE__)}/lib")
+Dir.glob("#{File.dirname(__FILE__)}/lib/*.rb") { |lib| require File.basename(lib, '.*') }
 
-configure do
-  SiteConfig = OpenStruct.new(
-                 :title => 'Your Application Name',
-                 :author => 'Your Name',
-                 :url_base => 'http://localhost:4567/'
-               )
-
-  # load models
-  $LOAD_PATH.unshift("#{File.dirname(__FILE__)}/lib")
-  Dir.glob("#{File.dirname(__FILE__)}/lib/*.rb") { |lib| require File.basename(lib, '.*') }
-
-               
-  DataMapper.setup(:default, (ENV["DATABASE_URL"] || "sqlite3:///#{File.expand_path(File.dirname(__FILE__))}/#{Sinatra::Base.environment}.db"))
-
-end

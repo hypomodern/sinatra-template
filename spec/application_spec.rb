@@ -4,15 +4,15 @@ describe 'main application' do
   include Rack::Test::Methods
 
   def app
-    Sinatra::Application.new
+    SampleApp.new
   end
 
-  specify 'should show the default index page' do
+  it 'should show the default index page' do
     get '/'
     last_response.should be_ok
   end
 
-  specify 'should have more specs' do
+  it 'should have more specs' do
     pending
   end
 end

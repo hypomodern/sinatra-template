@@ -1,11 +1,12 @@
-require 'application'
+require 'sample_app'
 
-set :run, false
-set :environment, :production
+SampleApp.set :environment, ENV["RACK_ENV"] || :development
 
-FileUtils.mkdir_p 'log' unless File.exists?('log')
-log = File.new("log/sinatra.log", "a+")
-$stdout.reopen(log)
-$stderr.reopen(log)
+if ENV["RACK_ENV"] == "production"
+  FileUtils.mkdir_p 'log' unless ::File.exists?('log')
+  log = ::File.new("log/sinatra.log", "a+")
+  $stdout.reopen(log)
+  $stderr.reopen(log)
+end
 
-run Sinatra::Application
+run SampleApp.new
