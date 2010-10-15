@@ -5,16 +5,24 @@ Uses bundler, and includes MongoDB, RSpec, and Mustache, all ready to go.
 
 == Configuration
 
-Dependencies and all configuration is done in <tt>environment.rb</tt>. Your database is also set up here.
+Database configuration is done in <tt>environment.rb</tt>.
 
-Add your controller actions in <tt>application.rb</tt>. Views for these actions are placed in the <tt>views</tt> directory. Static files, including a stock stylesheet, go in the <tt>public</tt> directory. Models go in the <tt>lib</tt> directory and are auto-loaded.
+The main application is a Sinatra::Base descendent called SampleApp. It's wired for mustache; and there's a default layout that pulls in some blueprintcss reset and typography stuff. View objects go in <tt>views/</tt>, the templates go in...
 
-== Testing
+== Testing (Now with RSpec 2!)
 
 Add your specs in <tt>spec</tt>; just require <tt>spec_helper.rb</tt> to pre-configure the test environment. A number of samples are provided (including a sample model, which can be removed). To run the specs:
 
-  rake spec
+  rspec spec
 
-== Getting Started
+There's a sample .rspec file in the root dir; this is the rspec2 replacement for spec.opts.
 
-  ruby application.rb
+== Run this thang
+
+  rackup
+
+No, seriously. That's it.
+
+== Futurism
+
+jQuery, cucumber, and... deployment? Ya. Sounds good.
