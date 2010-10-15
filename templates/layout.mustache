@@ -3,12 +3,11 @@
   <head>
     <title>{{ title }}</title>
     
-    <link rel="stylesheet" href="/stylesheets/screen.css" type="text/css" media="screen, projection">
-    <link rel="stylesheet" href="/stylesheets/controls.css" type="text/css" media="screen, projection">
-    <link rel="stylesheet" href="/stylesheets/print.css" type="text/css" media="print">
+    {{{ core_stylesheets }}}
     <!--[if lt IE 8]><link rel="stylesheet" href="/stylesheets/ie.css" type="text/css" media="screen, projection"><![endif]-->
-    <link rel="stylesheet" href="/stylesheets/main.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="/stylesheets/print.css" type="text/css" media="print">
     
+    {{{ core_javascripts }}}
   </head>
   <body>
     {{{ yield }}}
