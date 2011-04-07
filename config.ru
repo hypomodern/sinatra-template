@@ -1,3 +1,5 @@
+where_we_at = File.expand_path(File.join(File.dirname(__FILE__)))
+$LOAD_PATH.unshift( where_we_at ) unless $LOAD_PATH.include?( where_we_at )
 require 'sample_app'
 
 SampleApp.set :environment, ENV["RACK_ENV"] || :development
