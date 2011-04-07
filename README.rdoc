@@ -25,4 +25,5 @@ No, seriously. That's it.
 
 == Futurism
 
+Switch out Sinatra::Bundles for rack-pagespeed, as soon as rack-pagespeed stops specifying specific versions of rack.
 jQuery, cucumber, and... deployment? Ya. Sounds good.
